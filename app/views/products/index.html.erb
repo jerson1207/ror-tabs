@@ -1,0 +1,21 @@
+<div data-controller="categories">
+  <!-- Category Tab Buttons -->
+  <button data-action="click->categories#filterAll" class="py-2 px-4 border-b-2 focus:outline-none hover:border-blue-500 active" data-categories-target="allButton">All</button>
+  <% @categories.each do |category| %>
+    <button data-action="click->categories#filterCategory" data-category-id="<%= category.id %>" class="py-2 px-4 border-b-2 focus:outline-none hover:border-blue-500"><%= category.name %></button>
+  <% end %>
+</div>
+
+<!-- Products List -->
+<ul>
+  <% @products.each do |product| %>
+    <li class="product-item hidden" data-product-id="<%= product.id %>" data-category-ids="<%= product.categories.pluck(:id).join(',') %>">
+      <%= product.name %>
+      <ul>
+        <% product.categories.each do |category| %>
+          <li><%= category.name %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>

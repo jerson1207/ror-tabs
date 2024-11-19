@@ -8,3 +8,26 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+/* Basic styles for the tab buttons */
+/* General button styles */
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: border-bottom-color 0.3s;
+}
+
+/* Active button style */
+button.active {
+  border-bottom-color: #4CAF50; /* Active tab indicator color */
+  font-weight: bold;
+}
+
+/* Style for hidden products */
+.hidden {
+  display: none;
+}
